@@ -1,0 +1,66 @@
+
+# Defaults
+
+
+# NSX Username
+nsx_username = "admin"
+
+# Accept self-signed certs
+validate_certs = "false"
+
+# Display name of vCenter on which NSX will be deployed
+nsx_vcenter = "vSphere_NSX_deploy"
+
+# Display Name on NSX Manager for the registered vCenter Server
+compute_manager_name = "vcenter"
+
+# Overlay Transport Zone display name
+overlay_tz_name = "Overlay-TZ"
+
+# VLAN Transport Zone display name
+vlan_tz_name = "VLAN-TZ"
+
+# IP Pool used by Edge Transport Nodes
+ip_pool_1_name = "Edge-TEP-IP-Pool"
+
+# IP Pool used by Host Transport Nodes.
+ip_pool_2_name = "Host-TEP-IP-Pool"
+
+# Host Switch Name on Edge1
+edge1_host_switch_name = "nvds1"
+
+# Display Name of Edge1 on NSX Manager
+edge1_display_name = "edge-01"
+
+# Host Switch Name on Edge2
+edge2_host_switch_name = "nvds1"
+
+# Display Name of Edge2 on NSX Manager
+edge2_display_name = "edge-02"
+
+# Display name of the Edge Cluster
+edge_cluster_display_name = "Edge-Cluster"
+
+# Edge Cluster Profile Binding
+edge_cluster_profile_binding = "nsx-default-edge-high-availability-profile"
+
+# Tier0 display name
+tier0_display_name = "vSphereK8sT0"
+
+# Name of the Host Switch Uplink Profile
+host_switch_profile_name = "vSphereK8_uplink_profile"
+
+# Uplink1 Name used for Host switch teaming
+host_switch_uplink1_name = "uplink-1"
+
+# Uplink1 Name used for Host switch teaming
+host_switch_uplink2_name = "uplink-2"
+
+# Teaming policy. Choices are FAILOVER_ORDER, LOADBALANCE_SRCID or LOADBALANCE_SRC_MAC
+host_switch_teaming_policy = "FAILOVER_ORDER"
+
+# Name of the Transport Node Profile configured on the Compute Clusters
+host_tnp_display_name = "vSphereK8_TNP"
+
+# Host Switch Profile used for Host Transport Node config
+host_default_host_switch_profile = "nsx-default-uplink-hostswitch-profile"

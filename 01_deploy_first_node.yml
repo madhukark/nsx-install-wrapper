@@ -1,0 +1,45 @@
+# Copyright 2018 VMware, Inc.
+# SPDX-License-Identifier: BSD-2-Clause OR GPL-3.0-only
+---
+#
+# Playbook to deploy the first NSX Appliance node. Also checks the node
+# status
+#
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars_files:
+    - nsx_pacific_vars.yml
+  tasks:
+    - name: deploy NSX Manager OVA
+      nsxt_deploy_ova:
+        ovftool_path: "/usr/bin"
+        datacenter: "{{ nsx_node1['datacenter'] }}"
+        datastore: "{{ nsx_node1['datastore'] }}"
+        portgroup: "{{ nsx_node1['portgroup'] }}"
+        cluster: "{{ nsx_node1['cluster'] }}"
+        vmname: "{{ nsx_node1['hostname'] }}"
+        hostname: "{{ nsx_node1['hostname'] }}"
+        dns_server: "{{ dns_server }}"
+        dns_domain: "{{ domain }}"
+        ntp_server: "{{ ntp_server }}"
+        gateway: "{{ gateway }}"
+        ip_address: "{{ nsx_node1['mgmt_ip'] }}"
+        netmask: "{{ netmask }}"
+        admin_password: "{{ nsx_password }}"
+        cli_password: "{{ nsx_password }}"
+        path_to_ova: "{{ nsx_ova_path }}"
+        ova_file: "{{ nsx_ova }}"
+        vcenter: "{{ nsx_vcenter_fqdn }}"
+        vcenter_user: "{{ nsx_vcenter_username }}"
+        vcenter_passwd: "{{ nsx_vcenter_password }}"
+        deployment_size: "small"
+        role: "NSX Manager"
+
+    - name: Check manager status
+      nsxt_manager_status:
+          hostname: "{{ nsx_node1['mgmt_ip'] }}"
+          username: "{{ nsx_username }}"
+          password: "{{ nsx_password }}"
+          validate_certs: "{{ validate_certs }}"
+          wait_time: 50

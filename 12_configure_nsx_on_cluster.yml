@@ -1,0 +1,22 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars_files:
+    - nsx_pacific_vars.yml
+  tasks:
+    - name: Attach Transport node profile to cluster
+      nsxt_transport_node_collections:
+        hostname: "{{ nsx_node1.mgmt_ip }}"
+        username: "{{ nsx_username }}"
+        password: "{{ nsx_password }}"
+        validate_certs: "{{ validate_certs }}"
+        display_name: "{{ item.display_name }}"
+        resource_type: "{{ item.resource_type }}"
+        description: "{{ item.description }}"
+        compute_manager_name: "{{ item.compute_manager_name }}"
+        cluster_name: "{{ item.cluster_name }}"
+        transport_node_profile_name: "{{ item.transport_node_profile_name }}"
+        state: "{{ state }}"
+      with_items:
+        - "{{ transport_node_collections }}"

@@ -1,0 +1,343 @@
+
+# User Configuration
+
+
+#-------------------------------------------------------------------------------
+# NSX OVA details
+#-------------------------------------------------------------------------------
+
+# Path where NSX OVA can be found on the local system
+# Example: /home/user/nsx_bits
+nsx_ova_path = ""
+
+# NSX OVA file name
+# Example: nsx-unified-appliance-3.0.ova
+nsx_ova = ""
+
+#-------------------------------------------------------------------------------
+# Details applicable to all 3 NSX nodes
+#-------------------------------------------------------------------------------
+
+# Password for admin and root accounts
+# Example: myPassword1!myPassword1!
+nsx_password = ""
+
+# Domain name for NSX Manager cluster
+# Example: mylab.net
+domain = ""
+
+# NSX Manager network netmask
+# Example: 255.255.255.224
+netmask = ""
+
+# Gateway to be configured on NSX Manager
+# Example: 192.168.1.1
+gateway = ""
+
+# DNS Server to be configured on NSX Manager
+# Example: 8.8.8.8
+dns_server = ""
+
+# NTP Server to be configured on NSX Manager
+# Example: 216.239. 35.0
+ntp_server = ""
+
+# vCenter where NSX will be deployed
+# Example: 10.10.10.2
+nsx_vcenter_fqdn = ""
+
+# vCenter Username for NSX deployment
+# Example: administrator@vsphere.local
+nsx_vcenter_username = ""
+
+# vCenter Password for NSX deployment
+# Example: myPassword1!
+nsx_vcenter_password = ""
+
+#-------------------------------------------------------------------------------
+# First NSX Manager node deployment details
+#-------------------------------------------------------------------------------
+
+# FQDN of the first NSX Manager
+# Example: nsx1.mylab.net
+node1_hostname = ""
+
+# IP Address to be configured on the first NSX Manager
+# Example: 192.168.1.10
+node1_mgmt_ip = ""
+
+# vCenter Datacenter name where NSX Manager will be deployed
+# Example: Palo-Alto-Datacenter
+node1_datacenter = ""
+
+# vCenter Cluster name where NSX Manager will be deployed
+# Example: Mgmt-Cluster
+node1_cluster = ""
+
+# vCenter Datastore where NSX Manager will be deployed
+# Example: datastore5
+node1_datastore = ""
+
+# vCenter Network for the management interface of NSX Manager. This can be a standard portgroup or a distributed port group
+# Example: VM Network
+node1_portgroup = ""
+
+#-------------------------------------------------------------------------------
+# Second NSX Manager deployment details
+#-------------------------------------------------------------------------------
+
+# FQDN of the second NSX Manager node
+# Example: nsx2.mylab.net
+node2_hostname = ""
+
+# Management IP Address to be configured on the second NSX Manager
+# Example: 192.168.1.20
+node2_mgmt_ip = ""
+
+# Network prefix for the second NSX Manager
+# Example: 24
+node2_netmask_prefix = ""
+
+# vCenter Datacenter name where the second NSX Manager will be deployed
+# Example: Palo-Alto-Datacenter
+node2_datacenter = ""
+
+# vCenter Cluster name where the second NSX Manager will be deployed
+# Example: Mgmt-Cluster
+node2_cluster = ""
+
+# vCenter Datastore where the second NSX Manager will be deployed
+# Example: datastore6
+node2_datastore = ""
+
+# vCenter Network for the management interface of the second NSX Manager. This can be a standard portgroup or a distributed port group
+# Example: VM Network
+node2_portgroup = ""
+
+#-------------------------------------------------------------------------------
+# Third NSX Manager deployment details
+#-------------------------------------------------------------------------------
+
+# FQDN of the third NSX Manager node
+# Example: nsx3.mylab.net
+node3_hostname = ""
+
+# Management IP Address to be configured on the third NSX Manager
+# Example: 192.168.1.30
+node3_mgmt_ip = ""
+
+# Network prefix for the third NSX Manager
+# Example: 24
+node3_netmask_prefix = ""
+
+# vCenter Datacenter name where the third NSX Manager will be deployed
+# Example: Palo-Alto-Datacenter
+node3_datacenter = ""
+
+# vCenter Cluster name where the third NSX Manager will be deployed
+# Example: Mgmt-Cluster
+node3_cluster = ""
+
+# vCenter Datastore where the third NSX Manager will be deployed
+# Example: datastore5
+node3_datastore = ""
+
+# vCenter Network for the management interface of the third NSX Manager. This can be a standard portgroup or a distributed port group
+# Example: VM Network
+node3_portgroup = ""
+
+#-------------------------------------------------------------------------------
+# vCenter to be registered as Compute Manager
+#-------------------------------------------------------------------------------
+
+# FQDN or IP of the vCenter Server to be registered with NSX Manager
+# Example: vcenter.mylab.net
+vcenter_fqdn = ""
+
+# vCenter username for authentication
+# Example: administrator@vsphere.local
+vcenter_username = ""
+
+# vCenter password for authentication
+# Example: myPassword1!
+vcenter_password = ""
+
+#-------------------------------------------------------------------------------
+# NSX License key
+#-------------------------------------------------------------------------------
+
+# NSX License Key
+# Example: XXXX-YYYY-ZZZZ-1111-2222-3333-4444
+nsx_license_key = ""
+
+#-------------------------------------------------------------------------------
+# TEP IP Pool for the Edge
+#-------------------------------------------------------------------------------
+
+# Start address of the Edge TEP IP Pool range
+# Example: 172.16.227.20
+ip_pool_1_start = ""
+
+# End address of the TEP IP Pool range
+# Example: 172.16.226.29
+ip_pool_1_end = ""
+
+# Gateway for the TEP IP Pool
+# Example: 172.16.227.1
+ip_pool_1_gateway = ""
+
+# TEP IP Pool Netmask in CIDR format
+# Example: 172.16.227.0/27
+ip_pool_1_cidr = ""
+
+#-------------------------------------------------------------------------------
+# TEP IP Pool for Host Nodes
+#-------------------------------------------------------------------------------
+
+# Start address of the Host TEP IP Pool range
+# Example: 172.16.227.20
+ip_pool_2_start = ""
+
+# End address of the Host TEP IP Pool range
+# Example: 172.16.226.29
+ip_pool_2_end = ""
+
+# Gateway for the Host TEP IP Pool
+# Example: 172.16.227.1
+ip_pool_2_gateway = ""
+
+# Host TEP IP Pool Netmask in CIDR format
+# Example: 172.16.227.0/27
+ip_pool_2_cidr = ""
+
+#-------------------------------------------------------------------------------
+# Edge 1 deployment details
+#-------------------------------------------------------------------------------
+
+# Host Switch Profile to be used on Edge1
+# Example: nsx-edge-single-nic-uplink-profile
+edge1_host_switch_profile_name = ""
+
+# Number of Uplinks on the Edge Node. Max: 2
+# Example: 2
+edge1_number_of_uplinks = "2"
+
+# vCenter Cluster name where Edge1 will be deployed
+# Example: Management
+edge1_cluster = ""
+
+# Datastore name where Edge1 will be deployed
+edge1_storage = ""
+
+# Port Group backing for the Management Cluster of Edge1
+# Example: VM Network
+edge1_mgmt_network = ""
+
+# Management IP Address for Edge1
+# Example: 192.168.1.50
+edge1_mgmt_ip = ""
+
+# Network prefix on the Management Network
+# Example: 24
+edge1_mgmt_netmask_prefix = ""
+
+# Default Gateway to be configured on Edge1 Management Network
+# Example: 192.168.1.1
+edge1_default_gateway = ""
+
+# FQDN of Edge1
+# Example: edge1.mylab.net
+edge1_fqdn = ""
+
+# Port Group backing for the data network on Edge1
+# Example: lab-dvpg
+edge1_data_network = ""
+
+# Edge1 CLI, root and audit user account passwords. The same password will be configured for all 3.
+# Example: myPassword1!myPassword1!
+edge1_system_password = ""
+
+#-------------------------------------------------------------------------------
+# Edge 2 deployment details
+#-------------------------------------------------------------------------------
+
+# Host Switch Profile to be used on Edge2
+# Example: nsx-edge-single-nic-uplink-profile
+edge2_host_switch_profile_name = ""
+
+# Number of Uplinks on the Edge Node. Max: 2
+# Example: 2
+edge2_number_of_uplinks = "2"
+
+# vCenter Cluster name where Edge2 will be deployed
+# Example: Management
+edge2_cluster = ""
+
+# Datastore name where Edge2 will be deployed
+edge2_storage = ""
+
+# Port Group backing for the Management Cluster of Edge2
+# Example: VM Network
+edge2_mgmt_network = ""
+
+# Management IP Address for Edge2
+# Example: 192.168.1.50
+edge2_mgmt_ip = ""
+
+# Network prefix on the Management Network
+# Example: 24
+edge2_mgmt_netmask_prefix = ""
+
+# Default Gateway to be configured on Edge2 Management Network
+# Example: 192.168.1.1
+edge2_default_gateway = ""
+
+# FQDN of Edge2
+# Example: edge1.mylab.net
+edge2_fqdn = ""
+
+# Port Group backing for the data network on Edge2
+# Example: lab-dvpg
+edge2_data_network = ""
+
+# Edge2 CLI, root and audit user account passwords. The same password will be configured for all 3.
+# Example: myPassword1!myPassword1!
+edge2_system_password = ""
+
+#-------------------------------------------------------------------------------
+# Tier0 Gateway Config
+#-------------------------------------------------------------------------------
+
+# BGP Neighbor AS number tobe configured on Tier0 Gateway
+# Example: 1211
+Tier0_BGP_AS_Number = ""
+
+#-------------------------------------------------------------------------------
+# Host Switch Profile Settings
+#-------------------------------------------------------------------------------
+
+# MTU used for uplinks
+host_switch_mtu = ""
+
+# VLAN used for tagging Overlay traffic of associated HostSwitch
+transport_vlan = ""
+
+#-------------------------------------------------------------------------------
+# Host Transport Node Profile configurations
+#-------------------------------------------------------------------------------
+
+# VDS Name on vCenter server
+# Example: vds1
+host_vds_name = ""
+
+# Number of Uplinks on the Host Node. Max: 2
+# Example: 2
+host_number_of_uplinks = "2"
+
+#-------------------------------------------------------------------------------
+# Compute Clusters to be Configured with NSX
+#-------------------------------------------------------------------------------
+
+# Comma separated vSphere Compute Clusters to be Configured with NSX
+# Example: Cluster-A, Cluster-B, Cluster-C
+compute_clusters_for_prep = ""
