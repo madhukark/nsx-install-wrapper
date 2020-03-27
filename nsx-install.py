@@ -98,7 +98,11 @@ def run_playbook(playbook, wait=0):
   else:
     cmd = "ansible-playbook -vvvv %s >> %s 2>&1 && sleep %s" % (playbook, g_logfile, wait)
   logging.debug ("Running command: %s" % cmd)
-  os.system (cmd)
+  ret = os.system (cmd)
+  if (ret != 0):
+    logging.error ("Could not run %s" % cmd)
+    print ("Deployment exited with Error. Please check %s" % g_logfile)
+    sys.exit (1)
 
 
 def get_obj(content, vimtype, name):
