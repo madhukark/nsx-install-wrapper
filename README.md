@@ -50,16 +50,18 @@ All logs are generated in nsx-install.log
 # Frequently Asked Questions (FAQ)
 
 * Can I deploy just 1 NSX manager?
-Yes.
+
+  Yes.
 
   - Edit nsx-config.txt and change the 'nsx_manager_cluster' to 'No'
   - Run 'python nsx-install.py --start'
   
 * Can I run this in a nested environment?
-Yes.
 
-As long as there are enough resources (CPU, Memory, Disk) and there is IP connectivity between 
-vCenter, NSX and the system on which the script is run.
+  Yes.
+
+  As long as there are enough resources (CPU, Memory, Disk) and there is IP connectivity between 
+  vCenter, NSX and the system on which the script is run.
 
 
 # Resources
