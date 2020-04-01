@@ -46,6 +46,13 @@ ansible-playbook 2.9.6
 # Logging
 All logs are generated in nsx-install.log
 
+# Frequently Asked Questions (FAQ)
+
+* Can I deploy just 1 NSX manager?
+Yes.
+  - Edit nsx-config.txt and change the 'nsx_manager_cluster' to 'No'
+  - Run 'python nsx-install.py --start'
+
 
 # Resources
 For general information about Ansible, visit the [GitHub project page][an-github].

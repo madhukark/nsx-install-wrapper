@@ -15,6 +15,13 @@ nsx_ova_path = ""
 nsx_ova = ""
 
 #-------------------------------------------------------------------------------
+# NSX Manager Cluster or Standalone deployment
+#-------------------------------------------------------------------------------
+
+# Deploy NSX Manager 3 node cluster. To deploy just 1 node, change to 'no'
+nsx_manager_cluster = "yes"
+
+#-------------------------------------------------------------------------------
 # Details applicable to all 3 NSX nodes
 #-------------------------------------------------------------------------------
 

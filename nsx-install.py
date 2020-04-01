@@ -193,6 +193,9 @@ def reset_config():
   writeln (f, "nsx_ova_path", "", "Path where NSX OVA can be found on the local system", "/home/user/nsx_bits")
   writeln (f, "nsx_ova", "", "NSX OVA file name", "nsx-unified-appliance-3.0.ova")
 
+  writeheader (f, "NSX Manager Cluster or Standalone deployment")
+  writeln (f, "nsx_manager_cluster", "yes", "Deploy NSX Manager 3 node cluster. To deploy just 1 node, change to 'no'")
+
   writeheader (f, "Details applicable to all 3 NSX nodes")
   writeln (f, "nsx_password", "", "Password for admin and root accounts", "myPassword1!myPassword1!")
   writeln (f, "domain", "", "Domain name for NSX Manager cluster", "mylab.net")
@@ -781,8 +784,16 @@ def call_ansible_to_install():
   logging.debug ("Configuring Compute Manager")
   run_playbook ("03_configure_compute_manager.yml")
 
-  logging.debug ("Deploying second and third NSX node")
-  run_playbook ("04_deploy_second_third_node.yml", wait=300)
+  config = dict()
+  config = txt_to_json(g_config)
+
+  if (config ['nsx_manager_cluster'].lower() == "yes" or
+      config ['nsx_manager_cluster'].lower() == "y"):
+    logging.debug ("Deploying second and third NSX node")
+    run_playbook ("04_deploy_second_third_node.yml", wait=300)
+  else:
+    print ("Skipping NSX Manager cluster deployment. Single node deployed")
+    logging.debug ("Skipping cluster deplyment")
 
   logging.debug ("Deploying Transport Zones")
   run_playbook ("05_setup_transport_zones.yml")
