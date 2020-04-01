@@ -28,6 +28,7 @@ ansible-playbook 2.9.6
 ```
 
 # Getting Started
+* Read the FAQ below
 * Clone this repo to a linux based system (Ubuntu/CentOS)
 * Make sure the dependencies are met (Install Python/Ansible/PyVmomi)
 * Download the NSX unified appliance installer OVA on the local file system
@@ -50,8 +51,15 @@ All logs are generated in nsx-install.log
 
 * Can I deploy just 1 NSX manager?
 Yes.
+
   - Edit nsx-config.txt and change the 'nsx_manager_cluster' to 'No'
   - Run 'python nsx-install.py --start'
+  
+* Can I run this in a nested environment?
+Yes.
+
+As long as there are enough resources (CPU, Memory, Disk) and there is IP connectivity between 
+vCenter, NSX and the system on which the script is run.
 
 
 # Resources
