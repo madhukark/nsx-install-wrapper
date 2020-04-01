@@ -26,6 +26,9 @@ ip_pool_1_name = "Edge-TEP-IP-Pool"
 # IP Pool used by Host Transport Nodes.
 ip_pool_2_name = "Host-TEP-IP-Pool"
 
+# VM form factor for Edge Node deployments. Defaults to LARGE. Other choices are SMALL and MEDIUM
+edge_form_factor = "LARGE"
+
 # Host Switch Name on Edge1
 edge1_host_switch_name = "nvds1"
 

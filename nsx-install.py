@@ -162,6 +162,7 @@ def reset_defaults():
   writeln (f, "vlan_tz_name", "VLAN-TZ", "VLAN Transport Zone display name")
   writeln (f, "ip_pool_1_name", "Edge-TEP-IP-Pool", "IP Pool used by Edge Transport Nodes")
   writeln (f, "ip_pool_2_name", "Host-TEP-IP-Pool", "IP Pool used by Host Transport Nodes.")
+  writeln (f, "edge_form_factor", "LARGE", "VM form factor for Edge Node deployments. Defaults to LARGE. Other choices are SMALL and MEDIUM")
   writeln (f, "edge1_host_switch_name", "nvds1", "Host Switch Name on Edge1")
   writeln (f, "edge1_display_name", "edge-01", "Display Name of Edge1 on NSX Manager")
   writeln (f, "edge2_host_switch_name", "nvds1", "Host Switch Name on Edge2")
@@ -538,7 +539,7 @@ def generate_vars_file():
   vm_dep_config ["allow_ssh_root_login"] = bool ("true")
   vm_dep_config ["placement_type"] = "VsphereDeploymentConfig"
   dep_config ["vm_deployment_config"] = vm_dep_config
-  dep_config ["form_factor"] = "MEDIUM"
+  dep_config ["form_factor"] = defaults ['edge_form_factor']
   node_user_settings = dict()
   node_user_settings ["cli_username"] = "admin"
   node_user_settings ["cli_password"] = config ["edge1_system_password"]
@@ -625,7 +626,7 @@ def generate_vars_file():
   vm_dep_config ["allow_ssh_root_login"] = bool ("true")
   vm_dep_config ["placement_type"] = "VsphereDeploymentConfig"
   dep_config ["vm_deployment_config"] = vm_dep_config
-  dep_config ["form_factor"] = "MEDIUM"
+  dep_config ["form_factor"] =  defaults ['edge_form_factor']
   node_user_settings = dict()
   node_user_settings ["cli_username"] = "admin"
   node_user_settings ["cli_password"] = config ["edge2_system_password"]
