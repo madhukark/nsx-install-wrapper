@@ -14,6 +14,7 @@ There are dependency on the following tools:
 * Python > 3.6.x
 * Ansible > 2.9.x
 * PyVmomi
+* OVFTool
 
 ## Version Check
 An easy way to verify if Python and Ansible are in the right versions:
