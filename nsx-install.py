@@ -30,6 +30,7 @@
 #
 # Usage:
 #   usage: nsx-install.py [-h] [--start] [--reset-defaults] [--reset-config]
+#                         [--manual]
 #   
 #   Install NSX
 #   
@@ -204,7 +205,7 @@ def reset_config():
   writeln (f, "gateway", "", "Gateway to be configured on NSX Manager", "192.168.1.1")
   writeln (f, "dns_server", "", "DNS Server to be configured on NSX Manager", "8.8.8.8")
   writeln (f, "ntp_server", "", "NTP Server to be configured on NSX Manager", "216.239. 35.0")
-  writeln (f, "nsx_vcenter_fqdn", "", "vCenter where NSX will be deployed", "10.10.10.2")
+  writeln (f, "nsx_vcenter_fqdn", "", "vCenter where NSX Manager and Edges will be deployed", "10.10.10.2")
   writeln (f, "nsx_vcenter_username", "", "vCenter Username for NSX deployment", "administrator@vsphere.local")
   writeln (f, "nsx_vcenter_password", "", "vCenter Password for NSX deployment", "myPassword1!")
 
@@ -406,15 +407,18 @@ def generate_vars_file():
   cm1 ["password"] = config ["vcenter_password"]
   cm1 ["set_as_oidc_provider"] = "true"
   cm.append (cm1)
-  cm2 = dict()
-  cm2 ["display_name"] = defaults ["nsx_vcenter"]
-  cm2 ["mgmt_ip"] = config ["nsx_vcenter_fqdn"]
-  cm2 ["origin_type"] = "vCenter"
-  cm2 ["credential_type"] = "UsernamePasswordLoginCredential"
-  cm2 ["username"] = config ["nsx_vcenter_username"]
-  cm2 ["password"] = config ["nsx_vcenter_password"]
-  cm2 ["set_as_oidc_provider"] = "false"
-  cm.append (cm2)
+  if (config["nsx_vcenter_fqdn"] != config["vcenter_fqdn"]):
+    cm2 = dict()
+    cm2 ["display_name"] = defaults ["nsx_vcenter"]
+    cm2 ["mgmt_ip"] = config ["nsx_vcenter_fqdn"]
+    cm2 ["origin_type"] = "vCenter"
+    cm2 ["credential_type"] = "UsernamePasswordLoginCredential"
+    cm2 ["username"] = config ["nsx_vcenter_username"]
+    cm2 ["password"] = config ["nsx_vcenter_password"]
+    cm2 ["set_as_oidc_provider"] = "false"
+    cm.append (cm2)
+  else:
+    defaults ["nsx_vcenter"] = defaults ["compute_manager_name"]
   nsx_vars ["compute_managers"] = cm
 
   licences = list()
@@ -867,6 +871,8 @@ parser.add_argument('--reset-defaults', dest='reset_defaults',
 parser.add_argument('--reset-config', dest='reset_config',
                     action='store_true',
                     help='Reset the config file')
+parser.add_argument('--manual', dest='manual',
+                    action='store_true')
 args = parser.parse_args()
 
 # Change the logfile if the default log file needs to be something different
@@ -875,11 +881,9 @@ logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s',
 
 if (args.start_install):
   install_nsx()
-#if (args.view_defaults):
-#  view_defaults()
-#elif (args.view_config):
-#  view_config()
 elif (args.reset_defaults):
   reset_defaults()
 elif (args.reset_config):
   reset_config()
+elif (args.manual):
+  generate_vars_file()
