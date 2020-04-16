@@ -1,7 +1,7 @@
-# NSX Install for Project Pacific
+# NSX Install Wrapper
 
 ## Overview
-This repository contains code that simplifies NSX Install. The information needed to install NSX is read from 2 files.
+This repository contains code that simplifies NSX Install by providing a wrapper script. The information needed to install NSX is read from 2 files.
 
 * Defaults: This contains certain display names. Users can change this but is not required to.
 
