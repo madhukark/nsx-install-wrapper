@@ -9,6 +9,14 @@ This repository contains code that simplifies NSX Install by providing a wrapper
 
 The provided nsx-install.py script merges these files to generate a JSON file which is used by the Ansible modules to install NSX.
 
+### What the wrapper does:
+* Deploys a NSX Manager cluster (or a single NSX node)
+* Configures NSX Manager with vCenters
+* Deploys 2 Edges and creates a cluster
+* Creates a Host Switch Profile and Transport Node Profile
+* Preps one or more vCenter Clusters (to create Host Transport Nodes)
+* Adds a License file to NSX Manager and Accepts the EULA
+
 ## System Dependencies
 There are dependency on the following tools:
 * Python > 3.6.x
@@ -56,6 +64,8 @@ All logs are generated in nsx-install.log
   - [Dont want to run the whole install but run playbooks manually](#i-dont-want-to-run-the-whole-install-but-want-to-run-the-playbooks-manually-can-i)
   - [I just have 1 cluster where I want to deploy NSX Manager, Edges and Host Transport Nodes](#i-just-have-1-cluster-where-i-want-to-deploy-nsx-manager-edges-and-have-host-transport-nodes-can-i-use-this-script)
   - [Can I prep my Hosts Induvidually and not as a Cluster](#can-i-prep-my-host-induvidually-and-not-at-a-cluster-level)
+  - [Can I change the number of Edges that are deployed](#can-i-change-the-number-of-edges-that-are-deployed)
+  - [Can I customize the workflow](#can-i-customize-the-workflow)
 
 ### Can I deploy just 1 NSX manager?
 
@@ -107,6 +117,14 @@ All logs are generated in nsx-install.log
 
   Not through this script. The underlying Ansible playbooks support this. Please look at example here:
   ["Prep Single Hosts as Transport Nodes](https://github.com/vmware/ansible-for-nsxt/tree/dev/examples/setup_infra "Example")
+
+### Can I change the number of Edges that are deployed?
+
+  No. Customization can be done by using the underlying Ansible modules directly. Please check ["NSX-T Ansible modules"](https://github.com/vmware/ansible-for-nsxt/tree/dev "NSX-T Ansible Modules")
+  
+### Can I customize the workflow?
+
+  No. The script is ment to deploy a specific topology quickly. Customization can be done by using the underlying Ansible modules directly. Please check ["NSX-T Ansible modules"](https://github.com/vmware/ansible-for-nsxt/tree/dev "NSX-T Ansible Modules")
 
 ## Issues?
 
