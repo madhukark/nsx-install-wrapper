@@ -50,10 +50,12 @@ All logs are generated in nsx-install.log
 
 ## Frequently Asked Questions (FAQ)
 
-  - [Can I deploy just 1 NSX manager](#can-i-deploy-just-1-nsx)
+  - [Can I deploy just 1 NSX manager](#can-i-deploy-just-1-nsx-manager)
   - [Can I run in an nested environment](#can-i-run-in-a-nested-environment)
-  - [I only have 1 vCenter](#i-only-have-1-vcenter)
-  - [I just have 1 cluster where I want to deploy NSX Manager, Edges and Host Transport Nodes](#i-just-have-1-cluster-where-i-want-to-deploy)
+  - [I only have 1 vCenter](#i-only-have-1-vcenter-what-can-i-do)
+  - [Dont want to run the whole install but run playbooks manually](#i-dont-want-to-run-the-whole-install-but-want-to-run-the-playbooks-manually-can-i)
+  - [I just have 1 cluster where I want to deploy NSX Manager, Edges and Host Transport Nodes](#i-just-have-1-cluster-where-i-want-to-deploy-nsx-manager-edges-and-have-host-transport-nodes-can-i-use-this-script)
+  - [Can I prep my Hosts Induvidually and not as a Cluster](#can-i-prep-my-host-induvidually-and-not-at-a-cluster-level)
 
 ### Can I deploy just 1 NSX manager?
 
@@ -62,7 +64,7 @@ All logs are generated in nsx-install.log
   - Edit nsx-config.txt and change the 'nsx_manager_cluster' to 'No'
   - Run 'python nsx-install.py --start'
   
-### Can I run this in a nested environment?
+### Can I run in a nested environment?
 
   Yes.
 
