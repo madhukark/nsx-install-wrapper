@@ -50,21 +50,26 @@ All logs are generated in nsx-install.log
 
 ## Frequently Asked Questions (FAQ)
 
-* Can I deploy just 1 NSX manager?
+  - [Can I deploy just 1 NSX manager](#can-i-deploy-just-1-nsx)
+  - [Can I run in an nested environment](#can-i-run-in-a-nested-environment)
+  - [I only have 1 vCenter](#i-only-have-1-vcenter)
+  - [I just have 1 cluster where I want to deploy NSX Manager, Edges and Host Transport Nodes](#i-just-have-1-cluster-where-i-want-to-deploy)
+
+### Can I deploy just 1 NSX manager?
 
   Yes.
 
   - Edit nsx-config.txt and change the 'nsx_manager_cluster' to 'No'
   - Run 'python nsx-install.py --start'
   
-* Can I run this in a nested environment?
+### Can I run this in a nested environment?
 
   Yes.
 
   As long as there are enough resources (CPU, Memory, Disk) and there is IP connectivity between 
   vCenter, NSX and the system on which the script is run.
 
-* I only have 1 vCenter. What can I do?
+### I only have 1 vCenter. What can I do?
 
   Just put the same information (fqdn, username, password) in both places in nsx-cofig.txt:
 ```
@@ -82,21 +87,21 @@ All logs are generated in nsx-install.log
         to deploy NSX Manager(s) and Edges and the second cluster will be used for Host Transport Nodes.
         
 
-* I dont want to run the whole install but want to run the playbooks manually. Can I?
+### I dont want to run the whole install but want to run the playbooks manually. Can I?
 
   Yes.
 
   Run 'python nsx-install.py --manual'. This will first merge the nsx-defaults.txt and nsx-config.txt and generate the nsx_pacific_vars.yml.
   You can then run: 'ansible-playbook 01_deploy_first_node.yml'  or any other playbook.
 
-* I just have 1 cluster where I want to deploy NSX Manager, Edges and have Host Transport Nodes. Can I use this script?
+### I just have 1 cluster where I want to deploy NSX Manager, Edges and have Host Transport Nodes. Can I use this script?
 
   No.
 
   The install wrapper expects at least 2 different clusters. One cluster will be to install NSX Manager(s) and Edges. THe other cluster will be prepped for NSX. So ALL hosts in that cluster will be Host Transport Nodes.
 
 
-* Can I prep my Host induvidually and not at a cluster level?
+### Can I prep my Host induvidually and not at a cluster level?
 
   Not through this script. The underlying Ansible playbooks support this. Please look at example here:
   ["Prep Single Hosts as Transport Nodes](https://github.com/vmware/ansible-for-nsxt/tree/dev/examples/setup_infra "Example")
