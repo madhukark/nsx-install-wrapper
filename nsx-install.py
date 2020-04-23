@@ -39,6 +39,7 @@
 #     --start           Start the installation
 #     --reset-defaults  Reset defaults to factory setting
 #     --reset-config    Reset the config file
+#     --manual          Manual install. Only generate the variables file
 #
 # Logs:
 #   Default log file: nsx-install.log
@@ -872,6 +873,7 @@ parser.add_argument('--reset-config', dest='reset_config',
                     action='store_true',
                     help='Reset the config file')
 parser.add_argument('--manual', dest='manual',
+                    help='Manual install. Only generate the variables file',
                     action='store_true')
 args = parser.parse_args()
 
